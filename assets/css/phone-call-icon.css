@@ -1,0 +1,16 @@
+.ewpbtn-phone-call-icon {
+    position: fixed;
+    z-index: 9999;
+    bottom: 30px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.ewpbtn-phone-call-icon i {
+    font-size: 30px; 
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #25D366; 
+}
+

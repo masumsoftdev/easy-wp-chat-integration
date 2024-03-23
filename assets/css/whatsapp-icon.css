@@ -1,0 +1,15 @@
+.ewpbtn-whatsapp-icon {
+    position: fixed;
+    z-index: 9999;
+    bottom: 30px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.ewpbtn-whatsapp-icon i {
+    font-size: 30px; 
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #25D366; 
+}
