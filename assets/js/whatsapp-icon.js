@@ -1,7 +1,8 @@
 jQuery(document).ready(function($) {
-   
+    var whatsapp_number = window.whatsapp_obj.whatsapp_number;
     $('.ewpbtn-whatsapp-icon').on('click', function() {
-        window.location.href = 'https://api.whatsapp.com/send?phone=123456789'; // Replace with your WhatsApp number
+        var formatted_number = whatsapp_number.replace(/[+() %-]/g, ''); 
+        window.location.href = 'https://api.whatsapp.com/send?phone=' + formatted_number;
     });
  
 });

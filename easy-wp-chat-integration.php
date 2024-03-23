@@ -37,6 +37,21 @@ class ewpbtn_Phone_Call_WhatsApp_Icons {
         // Enqueue plugin JavaScript
         wp_enqueue_script('ewpbtn-phone-call-icon-script', plugins_url('assets/js/phone-call-icon.js', __FILE__), array('jquery'), '', true);
         wp_enqueue_script('ewpbtn-whatsapp-icon-script', plugins_url('assets/js/whatsapp-icon.js', __FILE__), array('jquery'), '', true);
+   
+        $options         = get_option('easy_wp_chat_integration_settings', array());
+        $phone_number    = isset($options['phone_number']) ? $options['phone_number'] : '';
+        $whatsapp_number = isset($options['whatsapp_number']) ? $options['whatsapp_number'] : '';
+        
+        wp_localize_script( 'ewpbtn-phone-call-icon-script', 'phone_obj', array(
+            'adminurl' => admin_url('admin-ajax.php'),
+            'phone_number' => $phone_number
+        ));
+        wp_localize_script( 'ewpbtn-whatsapp-icon-script', 'whatsapp_obj', array(
+            'adminurl' => admin_url('admin-ajax.php'),
+            'whatsapp_number' => $whatsapp_number
+        ));
+   
+   
     }
 
     // public function ewpbtn_redirect(){
