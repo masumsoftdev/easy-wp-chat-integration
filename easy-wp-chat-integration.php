@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
 * Plugin Name: Easy WP Chat Integration
 * Plugin URI:        https://anothermonk.com/plugins/easy-wp-chat-integration
-* Description:       This plugin enables a feature of WhatsApp and Phone call button integration easily to website.
+* Description:       This plugin enables a feature of WhatsApp and Phone call button integration easily to the website.
 * Version:           1.0.0
 * Author:            Masum Billah
 * Author URI:        https://masum.anothermonk.com/
@@ -22,7 +22,6 @@ class ewpbtn_Phone_Call_WhatsApp_Icons {
         add_action('wp_enqueue_scripts', array($this, 'ewpbtn_enqueue_assets'));
         add_action('wp_footer', array($this, 'ewpbtn_render_phone_call_icon'));
         add_action('wp_footer', array($this, 'ewpbtn_render_whatsapp_icon'));
-        // register_activation_hook(__FILE__, array($this, 'ewpbtn_redirect'));
         add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'ewpbtn_settings_link'));
     }
 
@@ -53,11 +52,6 @@ class ewpbtn_Phone_Call_WhatsApp_Icons {
    
    
     }
-
-    // public function ewpbtn_redirect(){
-    //     wp_redirect(admin_url('admin.php?page=easy-wp-chat-integration'));
-    //     exit;
-    // }
 
     public function ewpbtn_settings_link($links){
         $settings_link = '<a href="admin.php?page=easy-wp-chat-integration">Settings</a>';
