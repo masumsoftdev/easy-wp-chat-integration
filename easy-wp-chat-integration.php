@@ -26,16 +26,17 @@ class ewpbtn_Phone_Call_WhatsApp_Icons {
     }
 
     public function ewpbtn_enqueue_assets() {
-        // Enqueue Font Awesome
-        wp_enqueue_style('ewpbtn-font-awesome', plugins_url('assets/css/font-awesome-all.min.css', __FILE__));
+       // Enqueue Font Awesome
+        wp_enqueue_style('ewpbtn-font-awesome', plugins_url('assets/css/font-awesome-all.min.css', __FILE__), array(), '5.15.4');
 
         // Enqueue plugin CSS
-        wp_enqueue_style('ewpbtn-phone-call-icon-styles', plugins_url('assets/css/phone-call-icon.css', __FILE__));
-        wp_enqueue_style('ewpbtn-whatsapp-icon-styles', plugins_url('assets/css/whatsapp-icon.css', __FILE__));
-        
+        wp_enqueue_style('ewpbtn-phone-call-icon-styles', plugins_url('assets/css/phone-call-icon.css', __FILE__), array(), '1.0.0');
+        wp_enqueue_style('ewpbtn-whatsapp-icon-styles', plugins_url('assets/css/whatsapp-icon.css', __FILE__), array(), '1.0.0');
+
         // Enqueue plugin JavaScript
-        wp_enqueue_script('ewpbtn-phone-call-icon-script', plugins_url('assets/js/phone-call-icon.js', __FILE__), array('jquery'), '', true);
-        wp_enqueue_script('ewpbtn-whatsapp-icon-script', plugins_url('assets/js/whatsapp-icon.js', __FILE__), array('jquery'), '', true);
+        wp_enqueue_script('ewpbtn-phone-call-icon-script', plugins_url('assets/js/phone-call-icon.js', __FILE__), array('jquery'), '1.0.0', true);
+        wp_enqueue_script('ewpbtn-whatsapp-icon-script', plugins_url('assets/js/whatsapp-icon.js', __FILE__), array('jquery'), '1.0.0', true);
+
    
         $options         = get_option('easy_wp_chat_integration_settings', array());
         $phone_number    = isset($options['phone_number']) ? $options['phone_number'] : '';
