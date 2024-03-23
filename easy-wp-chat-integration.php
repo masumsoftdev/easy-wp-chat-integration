@@ -11,21 +11,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 * Author URI:        https://masum.anothermonk.com/
 * License:           GPL-2.0+
 * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
-* Text Domain:       clufw
+* Text Domain:       ewpci
 * Domain Path:       /languages
 */
 
 class ewpbtn_Phone_Call_WhatsApp_Icons {
 
     public function __construct() {
+        include('admin/easy-wp-chat-int-admin-page.php');
         add_action('wp_enqueue_scripts', array($this, 'ewpbtn_enqueue_assets'));
         add_action('wp_footer', array($this, 'ewpbtn_render_phone_call_icon'));
         add_action('wp_footer', array($this, 'ewpbtn_render_whatsapp_icon'));
+        // register_activation_hook(__FILE__, array($this, 'ewpbtn_redirect'));
+        add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'ewpbtn_settings_link'));
     }
 
     public function ewpbtn_enqueue_assets() {
         // Enqueue Font Awesome
-        wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+        wp_enqueue_style('ewpbtn-font-awesome', plugins_url('assets/css/font-awesome-all.min.css', __FILE__));
 
         // Enqueue plugin CSS
         wp_enqueue_style('ewpbtn-phone-call-icon-styles', plugins_url('assets/css/phone-call-icon.css', __FILE__));
@@ -36,6 +39,16 @@ class ewpbtn_Phone_Call_WhatsApp_Icons {
         wp_enqueue_script('ewpbtn-whatsapp-icon-script', plugins_url('assets/js/whatsapp-icon.js', __FILE__), array('jquery'), '', true);
     }
 
+    // public function ewpbtn_redirect(){
+    //     wp_redirect(admin_url('admin.php?page=easy-wp-chat-integration'));
+    //     exit;
+    // }
+
+    public function ewpbtn_settings_link($links){
+        $settings_link = '<a href="admin.php?page=easy-wp-chat-integration">Settings</a>';
+        array_unshift($links, $settings_link);
+        return $links;
+    }
     public function ewpbtn_render_phone_call_icon() {
         ?>
         <div class="ewpbtn-phone-call-icon">
