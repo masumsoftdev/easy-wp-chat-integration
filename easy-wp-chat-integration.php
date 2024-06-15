@@ -15,38 +15,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 * Domain Path:       /languages
 */
 
-class ewpbtn_Phone_Call_WhatsApp_Icons {
+class Ewpci_Phone_Call_WhatsApp_Icons {
 
     public function __construct() {
-        include('admin/easy-wp-chat-int-admin-page.php');
-        add_action('wp_enqueue_scripts', array($this, 'ewpbtn_enqueue_assets'));
-        add_action('wp_footer', array($this, 'ewpbtn_render_phone_call_icon'));
-        add_action('wp_footer', array($this, 'ewpbtn_render_whatsapp_icon'));
-        add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'ewpbtn_settings_link'));
+        include_once('admin/easy-wp-chat-int-admin-page.php');
+        add_action('wp_enqueue_scripts', array($this, 'ewpci_enqueue_assets'));
+        add_action('wp_footer', array($this, 'ewpci_render_phone_call_icon'));
+        add_action('wp_footer', array($this, 'ewpci_render_whatsapp_icon'));
+        add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'ewpci_settings_link'));
     }
 
-    public function ewpbtn_enqueue_assets() {
-       // Enqueue Font Awesome
-        wp_enqueue_style('ewpbtn-font-awesome', plugins_url('assets/css/font-awesome-all.min.css', __FILE__), array(), '5.15.4');
+    public function ewpci_enqueue_assets() {
 
         // Enqueue plugin CSS
-        wp_enqueue_style('ewpbtn-phone-call-icon-styles', plugins_url('assets/css/phone-call-icon.css', __FILE__), array(), '1.0.0');
-        wp_enqueue_style('ewpbtn-whatsapp-icon-styles', plugins_url('assets/css/whatsapp-icon.css', __FILE__), array(), '1.0.0');
+        wp_enqueue_style('ewpci-phone-call-icon-styles', plugins_url('assets/css/phone-call-icon.css', __FILE__), array(), '1.0.0');
+        wp_enqueue_style('ewpci-whatsapp-icon-styles', plugins_url('assets/css/whatsapp-icon.css', __FILE__), array(), '1.0.0');
 
         // Enqueue plugin JavaScript
-        wp_enqueue_script('ewpbtn-phone-call-icon-script', plugins_url('assets/js/phone-call-icon.js', __FILE__), array('jquery'), '1.0.0', true);
-        wp_enqueue_script('ewpbtn-whatsapp-icon-script', plugins_url('assets/js/whatsapp-icon.js', __FILE__), array('jquery'), '1.0.0', true);
+        wp_enqueue_script('ewpci-phone-call-icon-script', plugins_url('assets/js/phone-call-icon.js', __FILE__), array('jquery'), '1.0.0', true);
+        wp_enqueue_script('ewpci-whatsapp-icon-script', plugins_url('assets/js/whatsapp-icon.js', __FILE__), array('jquery'), '1.0.0', true);
 
    
         $options         = get_option('easy_wp_chat_integration_settings', array());
         $phone_number    = isset($options['phone_number']) ? $options['phone_number'] : '';
         $whatsapp_number = isset($options['whatsapp_number']) ? $options['whatsapp_number'] : '';
         
-        wp_localize_script( 'ewpbtn-phone-call-icon-script', 'phone_obj', array(
+        wp_localize_script( 'ewpci-phone-call-icon-script', 'phone_obj', array(
             'adminurl' => admin_url('admin-ajax.php'),
             'phone_number' => $phone_number
         ));
-        wp_localize_script( 'ewpbtn-whatsapp-icon-script', 'whatsapp_obj', array(
+        wp_localize_script( 'ewpci-whatsapp-icon-script', 'whatsapp_obj', array(
             'adminurl' => admin_url('admin-ajax.php'),
             'whatsapp_number' => $whatsapp_number
         ));
@@ -54,28 +52,28 @@ class ewpbtn_Phone_Call_WhatsApp_Icons {
    
     }
 
-    public function ewpbtn_settings_link($links){
+    public function ewpci_settings_link($links){
         $settings_link = '<a href="admin.php?page=easy-wp-chat-integration">Settings</a>';
         array_unshift($links, $settings_link);
         return $links;
     }
-    public function ewpbtn_render_phone_call_icon() {
+    public function ewpci_render_phone_call_icon() {
         ?>
-        <div class="ewpbtn-phone-call-icon">
-            <i class="fas fa-phone-alt"></i> <!-- Font Awesome phone icon -->
+        <div class="ewpci-phone-call-icon">
+            <span class="dashicons dashicons-phone"></span> <!-- Font Awesome phone icon -->
         </div>
         <?php
     }
 
-    public function ewpbtn_render_whatsapp_icon() {
+    public function ewpci_render_whatsapp_icon() {
         ?>
-        <div class="ewpbtn-whatsapp-icon">
-            <i class="fab fa-whatsapp"></i> <!-- Font Awesome WhatsApp icon -->
+        <div class="ewpci-whatsapp-icon">
+            <span class="dashicons dashicons-whatsapp"></span> <!-- Font Awesome WhatsApp icon -->
         </div>
         <?php
     }
 }
 
-$ewpbtn_phone_call_whatsapp_icons = new ewpbtn_Phone_Call_WhatsApp_Icons();
+$ewpci_phone_call_whatsapp_icons = new Ewpci_Phone_Call_WhatsApp_Icons();
 
 

@@ -1,12 +1,12 @@
-.ewpbtn-whatsapp-icon {
+.ewpci-whatsapp-icon {
     position: fixed;
     z-index: 9999;
     bottom: 30px;
-    right: 20px;
+    right: 60px;
     cursor: pointer;
 }
 
-.ewpbtn-whatsapp-icon i {
+.ewpci-whatsapp-icon .dashicons-whatsapp::before {
     font-size: 30px; 
     padding: 10px;
     border-radius: 5px;

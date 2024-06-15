@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class ewpci_Admin {
+class Ewpci_Admin {
     // Constructor
     public function __construct() {
         // Add menu page

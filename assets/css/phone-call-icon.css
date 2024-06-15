@@ -1,12 +1,12 @@
-.ewpbtn-phone-call-icon {
+.ewpci-phone-call-icon {
     position: fixed;
     z-index: 9999;
     bottom: 30px;
-    left: 20px;
+    left: 30px;
     cursor: pointer;
 }
 
-.ewpbtn-phone-call-icon i {
+.ewpci-phone-call-icon .dashicons-phone::before {
     font-size: 30px; 
     padding: 10px;
     border-radius: 5px;
