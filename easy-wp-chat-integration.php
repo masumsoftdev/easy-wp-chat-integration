@@ -4,15 +4,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 /*
 * Plugin Name: Easy WP Chat Integration
-* Plugin URI:        https://masum.stackoverwhelmed.com/plugins/easy-wp-chat-integration
-* Description:       This plugin enables a feature of WhatsApp and Phone call button integration easily to the website.
-* Version:           1.0.0
-* Author:            Masum Billah
-* Author URI:        https://masum.stackoverwhelmed.com/
-* License:           GPL-2.0+
-* License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
-* Text Domain:       ewpci
-* Domain Path:       /languages
+* Plugin URI : https: //masum.stackoverwhelmed.com/plugins/easy-wp-chat-integration/
+* Description: This plugin enables a feature of WhatsApp and Phone call button integration easily to the website.
+* Version    : 1.0.0
+* Author     : Masum Billah
+* Author URI : https: //masum.stackoverwhelmed.com/
+* License    : GPL-2.0+
+* License URI: http : //www.gnu.org/licenses/gpl-2.0.txt
+* Text Domain: ewpci
+* Domain Path: /languages
 */
 
 class Ewpci_Phone_Call_WhatsApp_Icons {
