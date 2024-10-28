@@ -2,7 +2,7 @@
 Contributors: masumwp
 Tags: Phone Call Button, WhatsApp Chat Button, Live Chat
 Requires at least: 5.8
-Tested up to: 6.5
+Tested up to: 6.6
 Stable tag: 1.0.0
 Requires PHP: 8.0
 License: GPL-2.0+
